@@ -2,6 +2,18 @@
 
 This project uses Docker Compose to orchestrate multiple containers that provide a robust environment for data validation and visualization. Below is an overview of the services configured in the Docker Compose file and instructions on how to set them up.
 
+## Understanding Containerization
+
+### What is a Container?
+A container packages code along with all its dependencies, ensuring that the application runs consistently across different computing environments.
+
+### What is Docker?
+Docker is an open-source platform that simplifies the development, shipping, and running of applications by using containerization technology.
+
+### What is Docker Desktop?
+Docker Desktop is an Integrated Development Environment (IDE) for managing Docker containers. It provides a graphical interface for easy container management on both Mac and Windows.
+
+
 ## Services Configured
 
 ### Grafana
@@ -61,7 +73,27 @@ Before setting up the project, you need to install Docker Desktop:
    This command will download the images, create the containers, and start the services.
 
 4. **Access the services:**
-   Once all services are up, you can access them through their respective ports mentioned above using a web browser.
+   Open a browser and type `localhost:{port}` where `{port}` corresponds to the services:
+   - Node-RED: 1880
+   - pgAdmin: 5050
+   - Grafana: 3000
+
+## Additional Configuration
+
+### Node-RED
+- Optionally, set up a password for additional security.
+- Install specific nodes as needed and import flows to enhance functionality.
+
+### pgAdmin
+- Connect to your PostgreSQL databases such as TimescaleDB:
+  1. Open PGAdmin and log in.
+  2. Click “Add New Server” and configure connection settings using credentials defined in your `.env` file.
+
+### Grafana
+- To connect to PostgreSQL in Grafana:
+  1. Navigate to Connections → Data Sources → New data source → PostgreSQL.
+  2. Fill in the details like Name, Connection, and Authentication using information from your `.env` file.
+
 
 ## Managing the Services
 
