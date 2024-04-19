@@ -13,17 +13,6 @@ Docker is an open-source platform that simplifies the development, shipping, and
 ### What is Docker Desktop?
 Docker Desktop is an Integrated Development Environment (IDE) for managing Docker containers. It provides a graphical interface for easy container management on both Mac and Windows.
 
-## Recommendations
-
-To ensure a more stable and predictable environment, it is recommended to specify exact version tags for each image used in your Docker Compose file. This prevents potential compatibility issues that could arise from changes in newer versions.
-
-For example, you could modify the image line in the Docker Compose file to specify exact versions:
-```yaml
-services:
-  grafana:
-    image: grafana/grafana:8.3.0  # Example version tag
-```
-By locking to specific versions, you can ensure that all users of this Docker Compose file will have the same ver-sions of each software, reducing "it works on my machine" problems.
 
 ## Services Configured
 
@@ -64,6 +53,20 @@ TimescaleDB is an open-source database designed to make SQL scalable for time-se
 - **Version:** `pg16-all-amd64` - This tag specifies the PostgreSQL 16 compatible version of TimescaleDB with a high availability configuration.
 - **GitHub:** [TimescaleDB GitHub](https://github.com/timescale/timescaledb)
 - **Docker Hub:** [TimescaleDB Docker Hub](https://hub.docker.com/r/timescale/timescaledb-ha), exact version: `timescale/timescaledb-ha:pg16-all-amd64`
+
+## Customizing Versions
+For this project, we have chosen to work with the latest version of each container to take advantage of the most recent features and improvements. Docker Compose allows us to specify which version of each container is used by modifying the `image` field in the `docker-compose.yml` file. By default, if no tag is specified after the image name, Docker uses the `latest` tag, pulling the most recent version available on Docker Hub.
+
+It is possible to choose what version is running by specifying a version tag in the `image` field of the Docker Compose file. For example, if you want to use a specific version of Grafana, you can modify the image line like this:
+
+```yaml
+services:
+  grafana:
+    image: grafana/grafana:8.3.0  # Example version tag
+```
+
+This modification will ensure that Docker pulls the specified version of the Grafana image instead of the latest. Specifying exact version tags is recommended to maintain consistency across different environments and to prevent unexpected behavior changes due to updates in new versions.
+
 
 ## Prerequisites
 
