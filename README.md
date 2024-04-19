@@ -19,6 +19,7 @@ Docker Desktop is an Integrated Development Environment (IDE) for managing Docke
 ### Grafana
 Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. In this setup, Grafana is pre-configured with the `grafana-worldmap-panel` plugin.
 - **Port:** 3000
+- **Version:** No specific version tag is specified in the `docker-compose.yml`, meaning it uses the `latest` ver-sion available at the time of pulling the image.
 - **GitHub:** [Grafana GitHub](https://github.com/grafana/grafana)
 - **Docker Hub:** [Grafana Docker Hub](https://hub.docker.com/r/grafana/grafana)
 
@@ -27,24 +28,28 @@ Eclipse Mosquitto is an open source message broker that implements the MQTT prot
 - **Ports:**
   - MQTT: 1883
   - Websockets: 80 (if configured)
+- **Version:** No specific version tag is specified. It defaults to the `latest` version.
 - **GitHub:** [Eclipse Mosquitto GitHub](https://github.com/eclipse/mosquitto)
 - **Docker Hub:** [Mosquitto Docker Hub](https://hub.docker.com/_/eclipse-mosquitto)
 
 ### Node-RED
 Node-RED is a programming tool for wiring together hardware devices, APIs, and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single click.
 - **Port:** 1880
+- **Version:** No specific version tag is specified. It defaults to the `latest` version.
 - **GitHub:** [Node-RED GitHub](https://github.com/node-red/node-red)
 - **Docker Hub:** [Node-RED Docker Hub](https://hub.docker.com/r/nodered/node-red)
 
 ### pgAdmin
 pgAdmin is a web-based administration tool for PostgreSQL. It allows you to manage PostgreSQL 9.2 and above from the web.
 - **Port:** 5050
+- **Version:** No specific version tag is specified. It defaults to the `latest` version.
 - **GitHub:** [pgAdmin GitHub](https://github.com/postgres/pgadmin4)
 - **Docker Hub:** [pgAdmin Docker Hub](https://hub.docker.com/r/dpage/pgadmin4)
 
 ### TimescaleDB
 TimescaleDB is an open-source database designed to make SQL scalable for time-series data. It is packaged as a PostgreSQL extension and thus fully compatible with PostgreSQL and the rich ecosystem of Postgres tools.
 - **Port:** 5432
+- **Version:** `pg16-all-amd64` - This tag specifies the PostgreSQL 16 compatible version of TimescaleDB with a high availability configuration.
 - **GitHub:** [TimescaleDB GitHub](https://github.com/timescale/timescaledb)
 - **Docker Hub:** [TimescaleDB Docker Hub](https://hub.docker.com/r/timescale/timescaledb-ha), exact version: `timescale/timescaledb-ha:pg16-all-amd64`
 
@@ -54,6 +59,18 @@ TimescaleDB is an open-source database designed to make SQL scalable for time-se
 Before setting up the project, you need to install Docker Desktop:
 - **For Windows and Mac:** Visit [Docker Desktop](https://www.docker.com/products/docker-desktop) and download the installer for your operating system. Follow the installation instructions provided.
 - **For Linux:** Docker Desktop is not available, but you can install Docker Engine directly from your distribution's repository. Follow the instructions on the [Docker website](https://docs.docker.com/engine/install/).
+
+## Recommendations
+
+To ensure a more stable and predictable environment, it is recommended to specify exact version tags for each image used in your Docker Compose file. This prevents potential compatibility issues that could arise from changes in newer versions.
+
+For example, you could modify the image line in the Docker Compose file to specify exact versions:
+```yaml
+services:
+  grafana:
+    image: grafana/grafana:8.3.0  # Example version tag
+```
+By locking to specific versions, you can ensure that all users of this Docker Compose file will have the same ver-sions of each software, reducing "it works on my machine" problems.
 
 ## Installation Guide
 
