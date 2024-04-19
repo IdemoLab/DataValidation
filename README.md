@@ -13,13 +13,25 @@ Docker is an open-source platform that simplifies the development, shipping, and
 ### What is Docker Desktop?
 Docker Desktop is an Integrated Development Environment (IDE) for managing Docker containers. It provides a graphical interface for easy container management on both Mac and Windows.
 
+## Recommendations
+
+To ensure a more stable and predictable environment, it is recommended to specify exact version tags for each image used in your Docker Compose file. This prevents potential compatibility issues that could arise from changes in newer versions.
+
+For example, you could modify the image line in the Docker Compose file to specify exact versions:
+```yaml
+services:
+  grafana:
+    image: grafana/grafana:8.3.0  # Example version tag
+```
+By locking to specific versions, you can ensure that all users of this Docker Compose file will have the same ver-sions of each software, reducing "it works on my machine" problems.
 
 ## Services Configured
 
 ### Grafana
 Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. In this setup, Grafana is pre-configured with the `grafana-worldmap-panel` plugin.
 - **Port:** 3000
-- **Version:** No specific version tag is specified in the `docker-compose.yml`, meaning it uses the `latest` ver-sion available at the time of pulling the image.
+
+- **Version:** No specific version tag is specified. It defaults to the `latest` version.
 - **GitHub:** [Grafana GitHub](https://github.com/grafana/grafana)
 - **Docker Hub:** [Grafana Docker Hub](https://hub.docker.com/r/grafana/grafana)
 
@@ -59,18 +71,6 @@ TimescaleDB is an open-source database designed to make SQL scalable for time-se
 Before setting up the project, you need to install Docker Desktop:
 - **For Windows and Mac:** Visit [Docker Desktop](https://www.docker.com/products/docker-desktop) and download the installer for your operating system. Follow the installation instructions provided.
 - **For Linux:** Docker Desktop is not available, but you can install Docker Engine directly from your distribution's repository. Follow the instructions on the [Docker website](https://docs.docker.com/engine/install/).
-
-## Recommendations
-
-To ensure a more stable and predictable environment, it is recommended to specify exact version tags for each image used in your Docker Compose file. This prevents potential compatibility issues that could arise from changes in newer versions.
-
-For example, you could modify the image line in the Docker Compose file to specify exact versions:
-```yaml
-services:
-  grafana:
-    image: grafana/grafana:8.3.0  # Example version tag
-```
-By locking to specific versions, you can ensure that all users of this Docker Compose file will have the same ver-sions of each software, reducing "it works on my machine" problems.
 
 ## Installation Guide
 
