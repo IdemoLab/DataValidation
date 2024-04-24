@@ -79,7 +79,7 @@ Before setting up the project, you need to install Docker Desktop:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/KasperHonore/DataValidation
+   git clone https://github.com/IdemoLab/DataValidation
    cd DataValidation
    ```
 
