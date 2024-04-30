@@ -2,8 +2,13 @@
 
 This document outlines the SQL commands for creating a PostgreSQL table that matches the structure of a provided CSV file, along with a Node.js script for inserting data from the CSV into the PostgreSQL database.
 
-## Download data set from Kaggle
-https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
+## Download Dataset from Kaggle
+
+You can download the dataset used for this setup from Kaggle. The dataset is titled "Smart Home Dataset with Weather Information" and can be found at the following URL:
+
+[Kaggle Dataset Link](https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information)
+
+Please note that you might need to create an account on Kaggle to access the dataset. After logging in, you can download the dataset directly from the dataset page.
 
 
 ## SQL Table Creation
