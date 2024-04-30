@@ -10,6 +10,13 @@ You can download the dataset used for this setup from Kaggle. The dataset is tit
 
 Please note that you might need to create an account on Kaggle to access the dataset. After logging in, you can download the dataset directly from the dataset page.
 
+## Node-RED Flow Integration
+
+To facilitate the data insertion from the CSV into your PostgreSQL database, a Node-RED flow is required. You can find and import a suitable Node-RED flow from the following link:
+
+[Node-RED Flow for PostgreSQL Data Insertion](https://flows.nodered.org/flow/687918dd5cb66a3bfc2a661e15ef4237)
+
+This flow includes the necessary nodes to process the CSV data, format it according to the database schema, and execute the SQL insert operations. Make sure to review and adjust the flow parameters to match your specific setup, such as database credentials and node configurations.
 
 ## SQL Table Creation
 
