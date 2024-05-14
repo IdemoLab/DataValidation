@@ -71,7 +71,7 @@ services:
       - PGADMIN_LISTEN_PORT=5050
 
   timescale:
-    image: timescale/timescaledb-ha:pg16-all-amd64
+    image: timescale/timescaledb:latest-pg16-repmgr-bitnami
     container_name: timescale
     restart: unless-stopped
     logging:
